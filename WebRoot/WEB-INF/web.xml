@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name></display-name>
+  <servlet>
+    <servlet-name>Back_LeoShopServlet</servlet-name>
+    <servlet-class>com.backleoshop.servlet.Back_LeoShopServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+    <servlet-name>LeoShopServlet</servlet-name>
+    <servlet-class>com.leoshop.servlet.LeoShopServlet</servlet-class>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Back_LeoShopServlet</servlet-name>
+    <url-pattern>*.bg</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LeoShopServlet</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+   <filter>
+  	<filter-name>BackAccessFilter</filter-name>
+  	<filter-class>com.leoshop.filter.BackAccessFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>BackAccessFilter</filter-name>
+  	<url-pattern>/back/*</url-pattern>
+  </filter-mapping>
+  
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/404.jsp</location>
+  </error-page>
+  
+  <error-page>
+  	<error-code>500</error-code>
+  	<location>/500.jsp</location>
+  </error-page>
+  
+  <listener>
+  	<listener-class>com.leoshop.listener.LeoShopListener</listener-class>
+  </listener>
+  <welcome-file-list>
+    <welcome-file>AboutBlank.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
