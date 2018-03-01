@@ -26,6 +26,8 @@ import com.leoshop.beans.Pager;
 import com.leoshop.beans.Product;
 import com.leoshop.beans.User;
 
+
+
 public interface LeoShopDao{
 	/**
 	 * 获取所有的商品
